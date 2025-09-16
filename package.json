@@ -19,10 +19,10 @@
 	"main": "./Sortable.min.js",
 	"module": "modular/sortable.esm.js",
 	"scripts": {
-		"build:umd": "set NODE_ENV=umd&& rollup -c ./scripts/umd-build.js",
-		"build:umd:watch": "set NODE_ENV=umd&& rollup -w -c ./scripts/umd-build.js",
-		"build:es": "set NODE_ENV=es&& rollup -c ./scripts/esm-build.js",
-		"build:es:watch": "set NODE_ENV=es&& rollup -w -c ./scripts/esm-build.js",
+		"build:umd": "cross-env NODE_ENV=umd&& rollup -c ./scripts/umd-build.js",
+		"build:umd:watch": "cross-env NODE_ENV=umd&& rollup -w -c ./scripts/umd-build.js",
+		"build:es": "cross-env NODE_ENV=es&& rollup -c ./scripts/esm-build.js",
+		"build:es:watch": "cross-env NODE_ENV=es&& rollup -w -c ./scripts/esm-build.js",
 		"minify": "node ./scripts/minify.js",
 		"build": "npm run build:es && npm run build:umd && npm run minify",
 		"test:compat": "node ./scripts/test-compat.js",
@@ -53,5 +53,8 @@
 		"vue",
 		"mixin"
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {
+		"cross-env": "^10.0.0"
+	}
 }
